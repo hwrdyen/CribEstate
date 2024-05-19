@@ -4,7 +4,7 @@ import { useState } from "react";
 function Navbar() {
   const [open, setOpen] = useState(false);
 
-  const user = true;
+  const user = false;
   return (
     <nav>
       <div className="left">
