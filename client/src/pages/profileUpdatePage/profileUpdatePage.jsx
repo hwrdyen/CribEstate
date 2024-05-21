@@ -1,10 +1,21 @@
 import "./profileUpdatePage.scss";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 function ProfileUpdatePage() {
+  const { updateUser, currentUser } = useContext(AuthContext);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+
+    const { username, email, password } = Object.fromEntries(formData); //different method than Login.jsx
+  };
+
   return (
     <div className="profileUpdatePage">
       <div className="formContainer">
-        <form>
+        <form onSubmit={handleSubmit}>
           <h1>Update Profile</h1>
           <div className="item">
             <label htmlFor="username">Username</label>
@@ -12,6 +23,7 @@ function ProfileUpdatePage() {
               id="username"
               name="username"
               type="text"
+              defaultValue={currentUser.username}
             />
           </div>
           <div className="item">
@@ -20,6 +32,7 @@ function ProfileUpdatePage() {
               id="email"
               name="email"
               type="email"
+              defaultValue={currentUser.email}
             />
           </div>
           <div className="item">
@@ -30,7 +43,11 @@ function ProfileUpdatePage() {
         </form>
       </div>
       <div className="sideContainer">
-        <img src="" alt="" className="avatar" />
+        <img
+          src={currentUser.avatar || "/noavatar.jpg"}
+          alt=""
+          className="avatar"
+        />
       </div>
     </div>
   );
