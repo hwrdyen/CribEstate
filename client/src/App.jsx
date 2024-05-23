@@ -6,6 +6,7 @@ import ProfilePage from "./pages/profilePage/profilePage";
 import ProfileUpdatePage from "./pages/profileUpdatePage/profileUpdatePage";
 import Login from "./pages/login/login";
 import Register from "./pages/register/register";
+import NewPostPage from "./pages/newPostPage/newPostPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 function App() {
@@ -47,6 +48,10 @@ function App() {
         {
           path: "/profile/update",
           element: <ProfileUpdatePage />,
+        },
+        {
+          path: "/add",
+          element: <NewPostPage />,
         },
       ],
     },
