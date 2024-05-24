@@ -8,11 +8,13 @@ import UploadWidget from "../../components/uploadWidget/uploadWidget";
 function ProfileUpdatePage() {
   const { updateUser, currentUser } = useContext(AuthContext);
   const [error, setError] = useState("");
-  const [avatarImg, setAvatarImg] = useState(currentUser.avatar);
+  const [avatarImg, setAvatarImg] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     const formData = new FormData(e.target);
 
     const { username, email, password } = Object.fromEntries(formData); //different method than Login.jsx
@@ -22,13 +24,15 @@ function ProfileUpdatePage() {
         username,
         email,
         password,
-        avatar: avatarImg,
+        avatar: avatarImg[0],
       });
       updateUser(res.data);
       navigate("/profile");
     } catch (err) {
       console.log(err);
       setError(err.response.data.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -59,14 +63,14 @@ function ProfileUpdatePage() {
             <label htmlFor="password">Password</label>
             <input id="password" name="password" type="password" />
           </div>
-          <button>Update</button>
+          <button disabled={isLoading}>Update</button>
           {error && <span>{error}</span>}
         </form>
       </div>
       <div className="sideContainer">
         {console.log(currentUser.avatar)}
         <img
-          src={avatarImg || currentUser.avatar || "/noavatar.jpg"}
+          src={avatarImg[0] || currentUser.avatar || "/noavatar.jpg"}
           alt=""
           className="avatar"
         />
@@ -77,7 +81,7 @@ function ProfileUpdatePage() {
             multiple: false,
             folder: "avatars",
           }}
-          setAvatarImg={setAvatarImg}
+          setState={setAvatarImg}
         />
       </div>
     </div>
