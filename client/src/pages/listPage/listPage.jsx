@@ -31,7 +31,7 @@ function ListPage() {
         <Suspense fallback={<p>Loading...</p>}>
           <Await
             resolve={data.postResponse}
-            errorElement={<p>Error loading posts@</p>}
+            errorElement={<p>Error loading posts!</p>}
           >
             {(postResponse) => <Map items={postResponse.data} />}
           </Await>
