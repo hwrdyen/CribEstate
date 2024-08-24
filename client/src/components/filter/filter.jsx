@@ -36,7 +36,7 @@ function Filter() {
             type="text"
             id="city"
             name="city"
-            placeholder="City Location"
+            placeholder="City, Location"
             onChange={handleChange}
             defaultValue={query.city}
           />

@@ -11,10 +11,13 @@ const HomePage = () => {
         <div className="wrapper">
           <h1 className="title">Find Real Estate & Get Your Dream Place</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos
-            explicabo suscipit cum eius, iure est nulla animi consequatur
-            facilis id pariatur fugit quos laudantium temporibus dolor ea
-            repellat provident impedit!
+            Your ultimate destination for discovering the perfect property.
+            Whether you are searching for a new home, investment property, or
+            rental, our platform connects you with top listings tailored to your
+            needs. With user-friendly search tools, expert advice, and a vast
+            network of real estate professionals, we make the process of finding
+            and securing your dream place seamless and enjoyable. Explore a
+            world of possibilities with us and step into your future home today.
           </p>
 
           <SearchBar />

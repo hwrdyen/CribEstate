@@ -6,7 +6,7 @@ const types = ["buy", "rent"];
 
 function SearchBar() {
   const [query, setQuery] = useState({
-    type: "buy",
+    type: "",
     city: "",
     minPrice: 0,
     maxPrice: 10000000,
@@ -37,7 +37,7 @@ function SearchBar() {
         <input
           type="text"
           name="city"
-          placeholder="City Location"
+          placeholder="City, Location"
           onChange={handleChange}
         />
         <input
