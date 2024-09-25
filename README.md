@@ -1,4 +1,10 @@
 # CribEstate
+## Overview
+![cribestate-responsive-mockup](https://github.com/user-attachments/assets/bed94687-681c-4a49-b9b6-2b4b7005d236)
+
+CribEstate is a responsive full-stack web app for property searching, listing, and management, featuring real-time chat with Socket.io, secure JWT authentication, and efficient data handling with Prisma, all within a dynamic React UI for seamless user experience across devices.
+                
+
 ## Getting Started
 
 ### Prerequisites
